@@ -26,6 +26,9 @@ public:
     int leavesCount();
     shared_ptr<Node<T>> find(const T& item);
     shared_ptr<Node<T>> findRightMostNode(shared_ptr<Node<T>> ptr);
+    shared_ptr<Node<T>> findParent(shared_ptr<Node<T>> ptr);
+
+
 
 
 
@@ -39,6 +42,13 @@ private:
     int leavesCount(shared_ptr<Node<T>> ptr);
     shared_ptr<Node<T>> copyNode(shared_ptr<Node<T>> ptr);
     shared_ptr<Node<T>> find(const T& item, shared_ptr<Node<T>> ptr);
+    shared_ptr<Node<T>> findParent(shared_ptr<Node<T>> main, shared_ptr<Node<T>> ptr);
+    void remove(const T& item, shared_ptr<Node<T>> &ptr);
+    void removeLeft(const T& item, shared_ptr<Node<T>> ptr);
+
+    
+
+
 
 
     shared_ptr<Node<T>> root;
@@ -190,7 +200,7 @@ shared_ptr<Node<T>> BTree<T>::find(const T& item, shared_ptr<Node<T>> ptr){
         return find(item, ptr->right);
     }
     else{
-        std::cout << "problem";
+        std::cout << "problem"<< std::endl;
         return ptr;
     }
 }
@@ -201,4 +211,62 @@ shared_ptr<Node<T>> BTree<T>::findRightMostNode(shared_ptr<Node<T>> ptr){
     }else{
         return findRightMostNode(ptr->right);
     }
+}
+template <typename T>
+shared_ptr<Node<T>> BTree<T>::findParent(shared_ptr<Node<T>> ptr){
+    if(root == ptr){
+        return root;
+    }
+    return findParent(root, ptr);
+}
+
+template <typename T>
+shared_ptr<Node<T>> BTree<T>::findParent(shared_ptr<Node<T>> main, shared_ptr<Node<T>> ptr){
+    if(main->right == ptr){
+        return main;
+    }else if(main->left == ptr){
+        return main;
+    }
+    if(main->data < ptr->data){
+       return findParent(main->right, ptr);
+    }else if(main->data > ptr->data){
+        return findParent(main->left, ptr);
+    }
+    return nullptr;
+}
+
+template <typename T>
+void BTree<T>::remove(const T &item){
+    if(root == nullptr){
+        return;
+    }
+    remove(item, root);
+}
+template <typename T>
+void BTree<T>::remove(const T &item,shared_ptr<Node<T>> &ptr){
+    if(ptr->data == item){
+       if(ptr->left == nullptr){
+            ptr = ptr->right;
+        }else if(ptr->right == nullptr){
+            ptr = ptr->left;
+        }else{
+            auto ptr2 = findRightMostNode(ptr->left);
+            remove(ptr2->data);
+            ptr->data = ptr2->data;
+            
+            
+        }
+    }else if(ptr->data < item){
+        remove(item, ptr->right);
+    }else if(ptr->data > item){
+        remove(item, ptr->left);
+    }else{
+        std::cout << "problem"<< std::endl;
+        return;
+    }
+}
+
+template <typename T>
+void BTree<T>::removeLeft(const T &item,shared_ptr<Node<T>> ptr){
+    
 }
