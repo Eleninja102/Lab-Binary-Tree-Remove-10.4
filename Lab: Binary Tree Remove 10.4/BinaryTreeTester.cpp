@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "BTree.h"
-
+/*
 using namespace std;
 
 bool checkTest(string testName, int whatItShouldBe, int whatItIs);
@@ -45,3 +45,4 @@ bool checkTest(string testName, int whatItShouldBe, int whatItIs) {
     return false;
   }
 }
+*/

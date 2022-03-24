@@ -18,8 +18,8 @@ int main() {
 
 	testFindMethod(myTree);
 	testRightMostNodeSearch(myTree);
-	testFindParent(myTree);
-	deleteTest(myTree);
+	//testFindParent(myTree);
+	//deleteTest(myTree);
 	system("pause");
 	return 0;
 }
@@ -49,10 +49,11 @@ void testFindMethod(BTree<int> myTree) {
 
 void testRightMostNodeSearch(BTree<int> myTree) {
 	auto ptr = myTree.find(49);
-	auto ptrchild = myTree.findRightMostNode(ptr);
+    auto ptrchild = myTree.findRightMostNode(ptr);
 
 	checkTest("Test 3: RightNodeTest(49)", 67, ptrchild->data);
 }
+/*
 void testFindParent(BTree<int> myTree) {
 	auto child1 = myTree.find(25);
 	auto ptr1 = myTree.findParent(child1);
@@ -149,7 +150,7 @@ void deleteTest(BTree<int> myTree) {
 		cout << endl;
 	}
 }
-
+*/
 //Helps with Testing
 bool checkTest(string testName, int whatItShouldBe, int whatItIs) {
 

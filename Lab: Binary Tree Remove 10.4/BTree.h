@@ -24,6 +24,10 @@ public:
     void postOrder();
     int nodeCount();
     int leavesCount();
+    shared_ptr<Node<T>> find(const T& item);
+    shared_ptr<Node<T>> findRightMostNode(shared_ptr<Node<T>> ptr);
+
+
 
 
 private:
@@ -34,17 +38,22 @@ private:
     int nodeCount(shared_ptr<Node<T>> ptr);
     int leavesCount(shared_ptr<Node<T>> ptr);
     shared_ptr<Node<T>> copyNode(shared_ptr<Node<T>> ptr);
+    shared_ptr<Node<T>> find(const T& item, shared_ptr<Node<T>> ptr);
+
 
     shared_ptr<Node<T>> root;
 };
+
 template <typename T>
 BTree<T>::BTree(const BTree<T>& b){
     root = copyNode(b.root);
 }
+
 template <typename T>
 BTree<T>& BTree<T>::operator=(const BTree<T>&){
     return BTree(*this);
 }
+
 template <typename T>
 shared_ptr<Node<T>> BTree<T>::copyNode(shared_ptr<Node<T>> ptr){
     if(ptr == nullptr){
@@ -159,4 +168,37 @@ int BTree<T>::leavesCount(shared_ptr<Node<T>> ptr){
         
     }
     return 0;
+}
+template <typename T>
+shared_ptr<Node<T>> BTree<T>::find(const T& item){
+    return find(item, root);
+}
+
+
+template <typename T>
+shared_ptr<Node<T>> BTree<T>::find(const T& item, shared_ptr<Node<T>> ptr){
+    if(ptr == nullptr){
+        return nullptr;
+    }
+    if(ptr->data == item){
+        return ptr;
+    }
+    else if(ptr->data > item){
+        return find(item, ptr->left);
+    }
+    else if(ptr->data < item){
+        return find(item, ptr->right);
+    }
+    else{
+        std::cout << "problem";
+        return ptr;
+    }
+}
+template <typename T>
+shared_ptr<Node<T>> BTree<T>::findRightMostNode(shared_ptr<Node<T>> ptr){
+    if(ptr->right == nullptr){
+        return ptr;
+    }else{
+        return findRightMostNode(ptr->right);
+    }
 }
