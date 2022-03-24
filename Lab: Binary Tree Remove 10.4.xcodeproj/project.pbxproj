@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1D7E095127EBF7A200F8C509 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1D7E095027EBF7A200F8C509 /* main.cpp */; };
+		1D7E095927EBF7B300F8C509 /* BinaryTreeTester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1D7E095727EBF7B300F8C509 /* BinaryTreeTester.cpp */; };
+		1D7E095B27EBF7BB00F8C509 /* BinaryTreeDeleteTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1D7E095A27EBF7BB00F8C509 /* BinaryTreeDeleteTest.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,9 @@
 /* Begin PBXFileReference section */
 		1D7E094D27EBF7A100F8C509 /* Lab: Binary Tree Remove 10.4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Lab: Binary Tree Remove 10.4"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D7E095027EBF7A200F8C509 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		1D7E095727EBF7B300F8C509 /* BinaryTreeTester.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryTreeTester.cpp; sourceTree = "<group>"; };
+		1D7E095827EBF7B300F8C509 /* BTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTree.h; sourceTree = "<group>"; };
+		1D7E095A27EBF7BB00F8C509 /* BinaryTreeDeleteTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryTreeDeleteTest.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +63,9 @@
 			isa = PBXGroup;
 			children = (
 				1D7E095027EBF7A200F8C509 /* main.cpp */,
+				1D7E095727EBF7B300F8C509 /* BinaryTreeTester.cpp */,
+				1D7E095827EBF7B300F8C509 /* BTree.h */,
+				1D7E095A27EBF7BB00F8C509 /* BinaryTreeDeleteTest.cpp */,
 			);
 			path = "Lab: Binary Tree Remove 10.4";
 			sourceTree = "<group>";
@@ -120,6 +128,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D7E095127EBF7A200F8C509 /* main.cpp in Sources */,
+				1D7E095B27EBF7BB00F8C509 /* BinaryTreeDeleteTest.cpp in Sources */,
+				1D7E095927EBF7B300F8C509 /* BinaryTreeTester.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
